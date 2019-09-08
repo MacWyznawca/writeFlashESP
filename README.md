@@ -15,8 +15,6 @@ Functions for ESP8266, ESP8285 for NON_OS. They should also work with FreeRTOS a
 
 Number of write to flash witout erase: (NR_OF_BLOCKS * 1024) / LENGHT_IN_32BIT_WORDS
 
-NR_OF_BLOCKS = 2, LENGHT_IN_32BIT_WORDS = 2 are 1024 write of 6 bytes user data for one erase cycle!
-
 'flash_user_data_sector_address' may by: uint32_t flash_user_data_sector_address = (SYSTEM_PARTITION_RF_CAL_ADDR / 0x1000) - NR_OF_BLOCKS;
 
 FLASH_MAGIC_BYTE  // some characteristic number for search user data
