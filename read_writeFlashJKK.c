@@ -42,7 +42,7 @@ int8_t ICACHE_FLASH_ATTR writeFlash(uint8_t *data){
 	uint32_t ffFF[LENGHT_IN_32BIT_WORDS];
 	os_memset(ffFF,0xFF,LENGHT_IN_32BIT_WORDS * 4); 
 	
-	// Erased flash fas only set bit (FF), patern to search first free blocks
+	// Erased flash was only set bit (FF), patern to search first free blocks
 	for (uint32_t i = 0; i < 4096 * NR_OF_BLOCKS; i += (LENGHT_IN_32BIT_WORDS * 4)){
 		addr = ((flash_user_data_sector_address + NR_OF_BLOCKS) * 4096) - (i + (LENGHT_IN_32BIT_WORDS * 4)); // start from last
 		if (spi_flash_read(addr, tstBuff, (LENGHT_IN_32BIT_WORDS * 4)) == SPI_FLASH_RESULT_OK){
