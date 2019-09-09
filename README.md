@@ -37,22 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 !!!! For 2 words You have 6 bytes, for 4 words You have 14 bytes !!!!
 *********************************************************************
 
-*/
-
-#ifndef _FLASH_WRITE_MORE_H
-#define _FLASH_WRITE_MORE_H
-
-#include "os_type.h"
-
-#define WRITE_MORE_OK (0)
-#define WRITE_MORE_ERROR (-1)
-#define WRITE_MORE_EREASE_ERROR (-2)
-#define WRITE_MORE_NOT_FOUND_ERROR (-3)
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 
 int8_t writeFlashESP(uint8_t *data, uint32_t sector_address, uint8_t nr_of_sectors, uint8_t nr_of_words, uint8_t magic_byte);
+
 int8_t readFlashESP(uint8_t *data, uint32_t sector_address, uint8_t nr_of_sectors, uint8_t nr_of_words, uint8_t magic_byte);
