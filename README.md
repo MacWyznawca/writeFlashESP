@@ -33,8 +33,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * nr_of_sectors = 2, nr_of_words = 2 are 1024 write of 6 bytes user data for one erase cycle!
 
 *********************************************************************
-!!!! You have for data (nr_of_words * 4) - 2.                    !!!!
-!!!! For 2 words You have 6 bytes, for 4 words You have 14 bytes !!!!
+* You have for data (nr_of_words * 4) - 2.                    !!!!
+*  For 2 words You have 6 bytes, for 4 words You have 14 bytes !!!!
 *********************************************************************
 
 
