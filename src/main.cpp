@@ -7,8 +7,28 @@ Demo of function: writeFlashESP and readFlashESP
 Function that allow multiple write to flash memory with a significantly reduced number of erase cycles.
 nr_of_sectors = 2 (8KB), nr_of_words = 2 (8 Bytes) are 1024 write of 6 Bytes user data for one erase cycle!
 
+nr_of_words now can be any ( 1, 2, 3, 4, 5…) les than 256.
+Number of write to flash witout erase: (nr_of_sectors * 1024) / nr_of_words
+If nr_of_sectors = 2, nr_of_words = 2 are 1024 write of 6 bytes user data for one erase cycle!
+
 Functions for ESP8266, ESP8285 for NON_OS
 They also work with FreeRTOS and Arduino.
+
+*********************************************************************
+* nr_of_sectors - Sectors has 1024 word (x4 byte) of flash memory (4096 Bytes). More sectors less erase flash and long live of module
+* nr_of_words - Data block lenght by 32 bit words. Two words are 8 bytes (1 Magic, 6 for user, 1 for crc). Free bytes for user is ((nr_of_words * 4) - 2)
+* 'sector_address' may by: uint32_t sector_address = (SYSTEM_PARTITION_RF_CAL_ADDR / 0x1000) - nr_of_sectors;
+* magic_byte // some characteristic number for search user data
+*********************************************************************
+
+* nr_of_words now can be any ( 1, 2, 3, 4, 5…) les than 256.
+* Number of write to flash witout erase: (nr_of_sectors * 1024) / nr_of_words
+* nr_of_sectors = 2, nr_of_words = 2 are 1024 write of 6 bytes user data for one erase cycle!
+
+*********************************************************************
+!!!! You have for own data (nr_of_words * 4) - 2.                !!!!
+!!!! For 2 words You have 6 bytes, for 4 words You have 14 bytes !!!!
+*********************************************************************
 
 */
 
@@ -78,7 +98,7 @@ void setup() {
   Serial.println("Write More test!");
 
 
- // writeFlashESP(flashBuff, flash_user_data_sector_address, 2, 2, FLASH_MAGIC_BYTE); // For test data read after power off commnt this!
+  writeFlashESP(flashBuff, flash_user_data_sector_address, 2, 2, FLASH_MAGIC_BYTE); // For test data read after power off commnt this!
 }
 
 void loop() {
