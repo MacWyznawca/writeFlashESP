@@ -15,13 +15,14 @@ Copyright (C) 2019 by Jaromir Kopp <macwyznawca at me dot com>
 * magic_byte // some characteristic number for search user data
 *********************************************************************
 
-* 1024 % nr_of_words must be 0 (nr_of_words may be: 1, 2, 4, 8…x)
+* nr_of_words now can be any ( 1, 2, 3, 4, 5…) les than 256.
 * Number of write to flash witout erase: (nr_of_sectors * 1024) / nr_of_words
 * nr_of_sectors = 2, nr_of_words = 2 are 1024 write of 6 bytes user data for one erase cycle!
 
 *********************************************************************
 * **You have for data (nr_of_words * 4) - 2**
 * **For 2 words You have 6 bytes, for 4 words You have 14 bytes**
+* **For 3 words You have 10 bytes**
 *********************************************************************
 
 
